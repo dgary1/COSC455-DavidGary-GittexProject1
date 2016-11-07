@@ -50,5 +50,26 @@ class MyLexicalAnalyzer extends LexicalAnalyzer{
     }
   }
   override def lookUp() : Boolean = {
+    var flag = true
+    if(lexemes.contains(stringOfChar))
+      flag = false
+    return flag
+  }
+  def text() : Boolean = {
+    for (number <- '0' to '9') {
+      if(character.equals(number))
+        return true
+    }
+    for (lowerChar <- 'a' to 'z') {
+      if (character.equals(lowerChar))
+        return true
+    }
+    for (upperChar <- 'A' to 'Z') {
+      if (character.equals(upperChar))
+        return true
+    }
+    if (character.equals(',') || character.equals('.') || character.equals('?') || character.equals('_') || character.equals('/'))
+      return true
+    return false
   }
 }
