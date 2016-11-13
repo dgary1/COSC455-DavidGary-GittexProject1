@@ -1,4 +1,5 @@
 package edu.towson.cosc.cosc455.dgary1
+import scala.collection.mutable
 
 /**
   * Created by davidgary on 10/11/16.
@@ -7,6 +8,9 @@ object Compiler {
 
   var fileContents : String = ""
   var currentToken : String = ""
+  val Scanner = new MyLexicalAnalyzer
+  val Parser = new MySyntaxAnalyzer
+  val Eval = new MySemanticAnalyzer
 
   def main(args : Array[String]) = {
     // check usage
@@ -15,6 +19,7 @@ object Compiler {
 
     // get first Token
     Scanner.getNextToken()
+    Parser.gittex()
 
     //calls start state of BNF is SyntaxAnalyzer
     Parser.gittex()
